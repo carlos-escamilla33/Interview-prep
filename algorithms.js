@@ -9,7 +9,7 @@ const twoSum = (arr, target) => {
     if (possiblePair in nums) {  // if the result of target - currNum is not in the hashmap then we keep on iterating
       return [i, nums[possiblePair]]; // return the number we are at and the result of target - the currNum
     } else {
-      nums[currNum] = i;
+      nums[currNum] = i; // insert the current number we are at with the index so we can later pull it from the hashtable
     }
   }
 }
@@ -60,6 +60,36 @@ const constainsDuplicate = (numsArr) => {
   }
   return false; // outside of the loop we can return false because we did not find a duplicate
 }
+
+// <-------------Maximum Subarray LEETCODE #238--------------->
+
+const productExceptSelf = (numsArr) => {
+  if (numsArr === null || numsArr.length === 0) return []; // check if the input array is null or is empty and return an empty array if it is
+  let productArr = new Array(numsArr.length); // initalize the size of the array we are returning
+  
+  let runningProduct = 1;
+  
+  for (let i = 0; i < numsArr.length; i++) {
+    productArr[i] = runningProduct;
+    runningProduct = runningProduct * numsArr[i];
+  }
+
+  console.log(productArr);
+
+  runningProduct = 1;
+  // 
+
+  for (let j = numsArr.length - 1; j >= 0; j--) {
+    productArr[j] = productArr[j] * runningProduct;
+    runningProduct = runningProduct * numsArr[j];
+  }
+
+  // console.log(runningProduct);
+  console.log(productArr);
+}
+
+productExceptSelf([1,2,3,4]);
+
 
 // <-------------Maximum Subarray LEETCODE #53--------------->
 let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
