@@ -6,7 +6,7 @@ const twoSum = (arr, target) => {
   for (let i = 0; i < arr.length; i++) {  // for loop through the nums
     const currNum = arr[i]; //initialize the current number we are at
     const possiblePair = target - currNum; // if you find the difference of the current number and the target
-    if (possiblePair in nums) {  // if the result of target - currNum is not in the hashmap then we keep on iterating
+    if (possiblePair in nums) {  // result difference of target - currNum is not in the hashmap then we keep on iterating
       return [i, nums[possiblePair]]; // return the number we are at and the result of target - the currNum
     } else {
       nums[currNum] = i;
