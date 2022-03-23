@@ -1,4 +1,5 @@
-// <-------------TwoSum LeetCode#1--------------->
+// <-------------TwoSum LEETCODE#1--------------->
+
 const twoSum = (arr, target) => {
   // create a hashtable to store the nums
   let nums = {};
@@ -13,11 +14,7 @@ const twoSum = (arr, target) => {
   }
 }
 
-console.log(twoSum([3,2,4], 6));
-
-
-
-// <-------------FlattenArray--------------->
+// <-------------FlattenArray META-PREP--------------->
 
 let exampleArray = [1, 2, [3, 4, 5], [4]];
 // let exampleArray = [1,2,[3,4,5,[6,7]]];
@@ -35,13 +32,40 @@ const flatten = (arr) => {
   return flatArray;
 }
 
-// console.log(flatten(exampleArray));
+// <-------------Best Time to Buy and Sell Stock LEETCODE #121--------------->
+
+const maxProfit = (pricesArr) => {
+  let maxProfit = 0;   // initalize a max profit variable
+  let minPrice = pricesArr[0]; // initalize a minPrice variable to keep track of a lower price that may come up in the prices array
+  for (const price of pricesArr) {
+    const currProfit = price - minPrice; // intializing a current profit variable to keep track of the best profit margin
+    if (currProfit > maxProfit) { // if the current profit is greater than our current max profit
+      maxProfit = currProfit; //we assign current profit to max profit
+    } else if (price < minPrice) { // if current profit is not greater than our maxprofit 
+      minPrice = price; // we can assign the price we are at to minPrice
+    }
+  }
+  return maxProfit;
+}
+
+// <-------------Contains Duplicate LEETCODE #217--------------->
+
+const constainsDuplicate = (numsArr) => {
+  const numsSet = new Set(); // create a nums set
+  for (const num of numsArr) { // for loop through the numbers
+    if (numsSet.has(num)) { // check to see if the nums set has already the number you are currently on inside of the loop
+      return true;   // return true if it does
+    }
+    numsSet.add(num); // if not then we just add it to the hashset
+  }
+  return false; // outside of the loop we can return false because we did not find a duplicate
+}
 
 // <-------------Maximum Subarray LEETCODE #53--------------->
 let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 
 const maxSubArray = (nums) => {
-  
+
 }
 
 // maxSubArray(arr);
