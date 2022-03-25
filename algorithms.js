@@ -74,7 +74,7 @@ const productExceptSelf = (numsArr) => {
     runningProduct = runningProduct * numsArr[i];
   }
 
-  console.log(productArr);
+  // console.log(productArr);
 
   runningProduct = 1;
   // 
@@ -85,17 +85,30 @@ const productExceptSelf = (numsArr) => {
   }
 
   // console.log(runningProduct);
-  console.log(productArr);
+  // console.log(productArr);
 }
 
 productExceptSelf([1,2,3,4]);
 
 
 // <-------------Maximum Subarray LEETCODE #53--------------->
-let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-
+let nums = [5,4,-1,7,8];
+  // find the largest sum of touching numbers
 const maxSubArray = (nums) => {
-
+  let max = nums[0]; // intialize a variable called max with a starting value
+  let currSum = 0; // this will be the running sum
+  for (const num of nums) { // for loop through the array
+    currSum+=num; // add each 
+    if (currSum > max) {
+      max = currSum;
+    }
+    if (currSum < 0) {
+      currSum = 0;
+    }
+  }
+  return max;
 }
 
-// maxSubArray(arr);
+const maxSub = maxSubArray(nums);
+
+console.log(maxSub);
