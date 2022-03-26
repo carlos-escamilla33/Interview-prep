@@ -119,4 +119,11 @@ const maxProduct = (nums) => {
   return resultMax;
 }
 
-console.log(maxProduct([2,3,-2,4]));
+
+// <-------------Maximum Product Subarray LEETCODE #152--------------->
+
+const findMin = (nums) => {
+  
+}
+
+findMin([3,4,5,1,2])
