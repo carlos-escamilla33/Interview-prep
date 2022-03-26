@@ -37,6 +37,7 @@ const flatten = (arr) => {
 const maxProfit = (pricesArr) => {
   let maxProfit = 0;   // initalize a max profit variable
   let minPrice = pricesArr[0]; // initalize a minPrice variable to keep track of a lower price that may come up in the prices array
+  
   for (const price of pricesArr) {
     const currProfit = price - minPrice; // intializing a current profit variable to keep track of the best profit margin
     if (currProfit > maxProfit) { // if the current profit is greater than our current max profit
@@ -66,49 +67,56 @@ const constainsDuplicate = (numsArr) => {
 const productExceptSelf = (numsArr) => {
   if (numsArr === null || numsArr.length === 0) return []; // check if the input array is null or is empty and return an empty array if it is
   let productArr = new Array(numsArr.length); // initalize the size of the array we are returning
-  
+
   let runningProduct = 1;
-  
+
   for (let i = 0; i < numsArr.length; i++) {
     productArr[i] = runningProduct;
     runningProduct = runningProduct * numsArr[i];
   }
 
-  // console.log(productArr);
-
   runningProduct = 1;
-  // 
 
   for (let j = numsArr.length - 1; j >= 0; j--) {
     productArr[j] = productArr[j] * runningProduct;
     runningProduct = runningProduct * numsArr[j];
   }
-
-  // console.log(runningProduct);
-  // console.log(productArr);
 }
 
-productExceptSelf([1,2,3,4]);
+productExceptSelf([1, 2, 3, 4]);
 
 
 // <-------------Maximum Subarray LEETCODE #53--------------->
-let nums = [5,4,-1,7,8];
-  // find the largest sum of touching numbers
+let nums = [5, 4, -1, 7, 8];
+// find the largest sum of touching numbers
+
 const maxSubArray = (nums) => {
-  let max = nums[0]; // intialize a variable called max with a starting value
-  let currSum = 0; // this will be the running sum
-  for (const num of nums) { // for loop through the array
-    currSum+=num; // add each 
-    if (currSum > max) {
-      max = currSum;
-    }
+  let max = nums[0];
+  let currSum = 0;
+  for (const num of nums) {
     if (currSum < 0) {
       currSum = 0;
     }
+    currSum = currSum + num;
+    max = Math.max(currSum, max);
   }
   return max;
 }
 
-const maxSub = maxSubArray(nums);
+// <-------------Maximum Product Subarray LEETCODE #152--------------->
+// find a contiguous non-empty subarray within the array that has the largest product, and return the product.
+const maxProduct = (nums) => {
+  let resultMax = nums[0]; // Initialize the resultMax to the biggest number we've seen so far, which is the first
+  let maxProductNum = 1; // Inititialize the maxProductNum to 1 instead of zero so we dont keep getting 0
+  let minProductNum = 1; // same as maxProductNum
+  for (const num of nums) { // for loop through nums array
+    const max1 = maxProductNum * num; // intialize max1 to give you back the product of maxProductNum * num[i]
+    const min1 = minProductNum * num; // intialize min1 to give you back the product of minProductNum * num[i]
+    maxProductNum = Math.max(num, max1, min1); // gives you back the max number out of these three variables
+    minProductNum = Math.min(num, max1, min1); // same as last variable, we need to take into consideration negative numbers
+    resultMax = Math.max(resultMax, maxProductNum, minProductNum);
+  }
+  return resultMax;
+}
 
-console.log(maxSub);
+console.log(maxProduct([2,3,-2,4]));
