@@ -26,3 +26,18 @@ const validAnagram = (str1, str2) => {
 
     return true;
 }
+
+// <-------------countUniqueValues--------------->
+const countUniqueValues = (nums) => {
+    let i = 0;
+   for (let j = 1; j < nums.length; j++) {
+       if (nums[i] !== nums[j]) {
+           i++;
+           nums[i] = nums[j];
+       }
+   }
+    return i +1;
+}
+
+countUniqueValues([-2, -1, -1, 0, 1]);
+
