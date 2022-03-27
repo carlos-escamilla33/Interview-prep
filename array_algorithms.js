@@ -122,8 +122,22 @@ const maxProduct = (nums) => {
 
 // <-------------Maximum Product Subarray LEETCODE #152--------------->
 
-const findMin = (nums) => {
-  
+const findMin = (arr) => {
+  let result = arr[0];
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    const mid = Math.floor((start + end) / 2);
+    if (arr[mid] < result) {
+      result = arr[mid];
+    } else if (arr[mid] >= arr[end]) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+  console.log(result);
 }
 
-findMin([3,4,5,1,2])
+findMin([11,13,15,17])
