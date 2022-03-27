@@ -120,7 +120,7 @@ const maxProduct = (nums) => {
 }
 
 
-// <-------------Maximum Product Subarray LEETCODE #152--------------->
+// <-------------Maximum Product Subarray LEETCODE #153--------------->
 
 const findMin = (arr) => {
   let result = arr[0];
@@ -137,7 +137,5 @@ const findMin = (arr) => {
       end = mid - 1;
     }
   }
-  console.log(result);
+  return result;
 }
-
-findMin([11,13,15,17])
