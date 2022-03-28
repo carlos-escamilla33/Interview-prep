@@ -33,7 +33,7 @@ const flatten = (arr) => {
 const maxProfit = (pricesArr) => {
   let maxProfit = 0;   // initalize a max profit variable
   let minPrice = pricesArr[0]; // initalize a minPrice variable to keep track of a lower price that may come up in the prices array
-  
+
   for (const price of pricesArr) {
     const currProfit = price - minPrice; // intializing a current profit variable to keep track of the best profit margin
     if (currProfit > maxProfit) { // if the current profit is greater than our current max profit
@@ -146,13 +146,34 @@ const twoSum2 = (nums, target) => {
     } else if (currSum > target) {
       end--;
     }
-   }
+  }
 }
 
 
 // <-------------Maximum Product Subarray LEETCODE #153--------------->
 
 const threeSum = (nums) => {
-  
-  
+  nums.sort((a, b) => a - b);
+  let result = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let start = 1;
+    let end = nums.length - 1;
+    while (start < end) {
+      const currSum = nums[i] + nums[start] + nums[end];
+      if (currSum === 0) {
+        result.push([nums[i], nums[start], nums[end]]);
+      } else if (currSum < 0) {
+        start++;
+      } else {
+        end--;
+      }
+    }
+  }
+
+  console.log(result);
 }
+
+threeSum([-1, 0, 1, 2, -1, -4])
