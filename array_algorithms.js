@@ -15,9 +15,6 @@ const twoSum = (arr, target) => {
 }
 
 // <-------------FlattenArray META-PREP--------------->
-
-let exampleArray = [1, 2, [3, 4, 5], [4]];
-// let exampleArray = [1,2,[3,4,5,[6,7]]];
 const flatten = (arr) => {
   let flatArray = []; // initalize empty array to push non array elements into
   for (let i = 0; i < arr.length; i++) { // for loop through the array
@@ -33,7 +30,6 @@ const flatten = (arr) => {
 }
 
 // <-------------Best Time to Buy and Sell Stock LEETCODE #121--------------->
-
 const maxProfit = (pricesArr) => {
   let maxProfit = 0;   // initalize a max profit variable
   let minPrice = pricesArr[0]; // initalize a minPrice variable to keep track of a lower price that may come up in the prices array
@@ -50,7 +46,6 @@ const maxProfit = (pricesArr) => {
 }
 
 // <-------------Contains Duplicate LEETCODE #217--------------->
-
 const constainsDuplicate = (numsArr) => {
   const numsSet = new Set(); // create a nums set
   for (const num of numsArr) { // for loop through the numbers
@@ -63,7 +58,6 @@ const constainsDuplicate = (numsArr) => {
 }
 
 // <-------------Maximum Subarray LEETCODE #238--------------->
-
 const productExceptSelf = (numsArr) => {
   if (numsArr === null || numsArr.length === 0) return []; // check if the input array is null or is empty and return an empty array if it is
   let productArr = new Array(numsArr.length); // initalize the size of the array we are returning
@@ -87,7 +81,6 @@ productExceptSelf([1, 2, 3, 4]);
 
 
 // <-------------Maximum Subarray LEETCODE #53--------------->
-let nums = [5, 4, -1, 7, 8];
 // find the largest sum of touching numbers
 
 const maxSubArray = (nums) => {
@@ -138,4 +131,28 @@ const findMin = (arr) => {
     }
   }
   return result;
+}
+
+// <-------------TwoSum 2 LEETCODE #167--------------->
+const twoSum2 = (nums, target) => {
+  let start = 0;
+  let end = nums.length - 1;
+  while (start < end) {
+    const currSum = nums[start] + nums[end];
+    if (currSum === target) {
+      return [start + 1, end + 1];
+    } else if (currSum < target) {
+      start++;
+    } else if (currSum > target) {
+      end--;
+    }
+   }
+}
+
+
+// <-------------Maximum Product Subarray LEETCODE #153--------------->
+
+const threeSum = (nums) => {
+  
+  
 }
