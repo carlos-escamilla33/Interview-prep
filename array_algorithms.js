@@ -151,7 +151,7 @@ const twoSum2 = (nums, target) => {
 
 
 // <-------------Maximum Product Subarray LEETCODE #153--------------->
-
+// FIX THIS SOLUTION
 const threeSum = (nums) => {
   nums.sort((a, b) => a - b);
   let result = [];
@@ -172,8 +172,4 @@ const threeSum = (nums) => {
       }
     }
   }
-
-  console.log(result);
 }
-
-threeSum([-1, 0, 1, 2, -1, -4])

@@ -30,14 +30,53 @@ const validAnagram = (str1, str2) => {
 // <-------------countUniqueValues--------------->
 const countUniqueValues = (nums) => {
     let i = 0;
-   for (let j = 1; j < nums.length; j++) {
-       if (nums[i] !== nums[j]) {
-           i++;
-           nums[i] = nums[j];
-       }
-   }
-    return i +1;
+    for (let j = 1; j < nums.length; j++) {
+        if (nums[i] !== nums[j]) {
+            i++;
+            nums[i] = nums[j];
+        }
+    }
+    return i + 1;
 }
 
-countUniqueValues([-2, -1, -1, 0, 1]);
 
+// <-------------MaxSum of Size K--------------->
+
+const maxSum = (arr, k) => {
+    let max = 0; // Initalize max to 0
+    let tempMax = 0; // Initialize tempMax to 0
+    for (let i = 0; i < k; i++) { // looping up until k
+        max += arr[i]; // setting the intial max of leading up to k
+    }
+    tempMax = max; // assigning max to tempMax to compare
+    for (let i = k; i < arr.length; i++) { // looping starting at k and forward
+        tempMax = tempMax + arr[i] - arr[i - k]; //keeps on updating the tempMax as we slide our window
+        max = Math.max(max, tempMax); // takes the max out of both max and tempMax
+    }
+    return max;
+}
+
+// <-------------Frequency Counter - sameFrequency--------------->
+
+const sameFrequency = (num1, num2) => {
+    let strNum1 = num1.toString();
+    let strNum2 = num2.toString();
+    if (strNum1.length !== strNum2.length) return false;
+    let numsObj = {};
+    for (let i = 0; i < strNum1.length; i++) {
+        numsObj[strNum1[i]] ? 
+        numsObj[strNum1[i]]++ : numsObj[strNum1[i]] = 1
+        numsObj[strNum2[i]] ? 
+        numsObj[strNum2[i]]++ : numsObj[strNum2[i]] = 1
+    }
+    
+    for (const num in numsObj) {
+        const value = numsObj[num];
+        if (value % 2 !== 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+sameFrequency(182, 281);
