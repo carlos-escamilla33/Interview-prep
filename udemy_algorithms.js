@@ -114,3 +114,18 @@ const averagePair = (nums, target) => {
     }
     return false;
 }
+
+// <-------------Multiple Pointers- isSubsequence--------------->
+
+const isSubsequence = (str1, str2) => {
+    let length = 0;
+    let idx = 0;
+    for (let i = 0; i < str2.length; i++) {
+        console.log(str2[i])
+        if (str2[i] === str1[idx]) {
+            length++;
+            idx++;
+        }
+    }
+    return length === str1.length;
+}
