@@ -79,4 +79,18 @@ const sameFrequency = (num1, num2) => {
     return true;
 }
 
-sameFrequency(182, 281);
+// <-------------Frequency Counter/Multiple Pointers - areThereDuplicates--------------->
+
+const areThereDuplicates = (...args) => {
+    const arr = [...args];
+    const freqCount = {};
+    for (const el of arr) {
+        freqCount[el] ? freqCount[el]++ : freqCount[el] = 1;
+    }
+    for (const key in freqCount) {
+        if (freqCount[key] % 2 === 0) {
+            return true;
+        }
+    }
+    return false;
+}
