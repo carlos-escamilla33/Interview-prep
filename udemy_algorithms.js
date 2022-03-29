@@ -94,3 +94,23 @@ const areThereDuplicates = (...args) => {
     }
     return false;
 }
+
+// <-------------Multiple Pointers - average Pair--------------->
+
+const averagePair = (nums, target) => {
+    // array is sorted we can use binary search to find the pair
+    if (nums.length === 0) return false;
+    let start = 0;
+    let end = nums.length - 1;
+    while (start < end) {
+        const currSum = (nums[start] + nums[end]) / 2;
+        if (currSum === target) {
+            return true;
+        } else if (currSum < target) {
+            start++;
+        } else if (currSum > target) {
+            end--;
+        }
+    }
+    return false;
+}
