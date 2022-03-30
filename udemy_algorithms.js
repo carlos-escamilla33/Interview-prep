@@ -39,23 +39,6 @@ const countUniqueValues = (nums) => {
     return i + 1;
 }
 
-
-// <-------------MaxSum of Size K--------------->
-
-const maxSum = (arr, k) => {
-    let max = 0; // Initalize max to 0
-    let tempMax = 0; // Initialize tempMax to 0
-    for (let i = 0; i < k; i++) { // looping up until k
-        max += arr[i]; // setting the intial max of leading up to k
-    }
-    tempMax = max; // assigning max to tempMax to compare
-    for (let i = k; i < arr.length; i++) { // looping starting at k and forward
-        tempMax = tempMax + arr[i] - arr[i - k]; //keeps on updating the tempMax as we slide our window
-        max = Math.max(max, tempMax); // takes the max out of both max and tempMax
-    }
-    return max;
-}
-
 // <-------------Frequency Counter - sameFrequency--------------->
 
 const sameFrequency = (num1, num2) => {
@@ -115,17 +98,42 @@ const averagePair = (nums, target) => {
     return false;
 }
 
-// <-------------Multiple Pointers- isSubsequence--------------->
+// <-------------Multiple Pointers - isSubsequence--------------->
 
 const isSubsequence = (str1, str2) => {
     let length = 0;
     let idx = 0;
     for (let i = 0; i < str2.length; i++) {
-        console.log(str2[i])
         if (str2[i] === str1[idx]) {
             length++;
             idx++;
         }
     }
     return length === str1.length;
+}
+
+// <-------------Sliding Window - maxSubarraySum--------------->
+
+const maxSubArraySum = (arr, k) => {
+
+    if (arr.length < k) return null; 
+
+    let max = 0;
+    let tempMax = 0;
+    for (let i = 0; i < k; i++) {
+        max+=arr[i];
+    }
+    tempMax = max;
+    for (let i = k; i < arr.length; i++) {
+        tempMax = tempMax + arr[i] - arr[i - k];
+        max =  Math.max(max, tempMax);
+    }
+
+    return max;
+}
+
+// <-------------Sliding Window - minSubArrayLen--------------->
+
+const minSubArrayLen = (arr, int) => {
+    
 }
