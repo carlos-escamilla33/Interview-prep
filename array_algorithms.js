@@ -173,8 +173,3 @@ const threeSum = (nums) => {
     }
   }
 }
-
-/*
-I want to work at nuro because I would enjoy working in its startup culture and because
-I would be excited to work on its autonomy tooling.
-*/

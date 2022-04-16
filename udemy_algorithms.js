@@ -135,5 +135,15 @@ const maxSubArraySum = (arr, k) => {
 // <-------------Sliding Window - minSubArrayLen--------------->
 
 const minSubArrayLen = (arr, int) => {
+    let resArr = [];
+    let runningSum = 0;
+    for (const num of arr) {
+        if (num >= int) {
+            resArr.push(num);
+            runningSum+=num;
+        }
+    }
     
+
+    return resArr.length;
 }
