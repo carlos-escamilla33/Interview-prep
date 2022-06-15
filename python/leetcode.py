@@ -10,7 +10,6 @@ def isValid(string):
     stack = []
 
     for char in string:
-        print(stack)
         if char in bracePairs and len(stack) > 0:
             if bracePairs[char] != stack[-1]:
                 return False
