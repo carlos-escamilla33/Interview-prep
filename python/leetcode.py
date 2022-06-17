@@ -10,7 +10,7 @@ def isValid(string):
     stack = []
 
     for char in string:
-        if char in bracePairs and len(stack) > 0:
+        if char in bracePairs and stack:
             if bracePairs[char] != stack[-1]:
                 return False
             else:
@@ -18,4 +18,4 @@ def isValid(string):
         else:
             stack.append(char)
 
-    return len(stack) == 0
+    return True if not stack else False
