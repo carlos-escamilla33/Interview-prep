@@ -95,18 +95,18 @@ def maxProfit(prices):
 
 def containsDuplicate(nums):
     # Initialize object/dictionary data structure to hold numbers
-    noDups = {}
+    hashset = {}
 
     # Iterate through nums array/list
     for idx in range(len(nums)):
         num = nums[idx]
         # if the num is already in the dictionary/object we know the list/arr doesnt hold distinct numbers
-        if num in noDups:
+        if num in hashset:
             # return true because the arr/list holds a duplicate
             return True
-        else:
-            # If we dont have it in the set we add it
-            noDups[num] = idx
+        # If we dont have it in the set we add it
+        # There is no need to add an else because the last if statement will shortcircut the algorithm
+        hashset[num] = idx
     
     # return false if we didnt find a duplicate
     return False
