@@ -35,9 +35,29 @@ class LinkedList:
 linkedList = LinkedList()
 linkedList.append(node1)
 
-linkedList.print_list()
+# linkedList.print_list()
 
         
         
             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

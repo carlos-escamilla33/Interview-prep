@@ -88,5 +88,26 @@ def maxProfit(prices):
     
     return maxProfit
 
+# ----------------Leetcode # 217 Best Time to Buy and Sell Stock ----------------
+
+def containsDuplicate(nums):
+    # Initialize set data structure that holds no duplicates
+    setNums = set()
+
+    # Iterate through nums array/list
+    for num in nums:
+        # if the num is already in the set we know that holds no distinct numbers
+        if num in setNums:
+            # return true because the arr/list holds a duplicate
+            return True
+        else:
+            # If we dont have it in the set we add it
+            setNums.append(num)
+    
+    # return false if we didnt find a duplicate
+    return False
+
+
+
 
 
