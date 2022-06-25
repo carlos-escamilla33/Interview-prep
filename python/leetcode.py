@@ -88,7 +88,7 @@ def maxProfit(prices):
     
     return maxProfit
 
-# ----------------Leetcode # 217 Best Time to Buy and Sell Stock ----------------
+# ----------------Leetcode # 217 Contains Duplicate ----------------
 
 def containsDuplicate(nums):
     # Initialize set data structure that holds no duplicates
