@@ -90,19 +90,23 @@ def maxProfit(prices):
 
 # ----------------Leetcode # 217 Contains Duplicate ----------------
 
+# TIME - O(N)
+# SPACE - O(N)
+
 def containsDuplicate(nums):
-    # Initialize set data structure that holds no duplicates
-    setNums = set()
+    # Initialize object/dictionary data structure to hold numbers
+    noDups = {}
 
     # Iterate through nums array/list
-    for num in nums:
-        # if the num is already in the set we know that holds no distinct numbers
-        if num in setNums:
+    for idx in range(len(nums)):
+        num = nums[idx]
+        # if the num is already in the dictionary/object we know the list/arr doesnt hold distinct numbers
+        if num in noDups:
             # return true because the arr/list holds a duplicate
             return True
         else:
             # If we dont have it in the set we add it
-            setNums.append(num)
+            noDups[num] = idx
     
     # return false if we didnt find a duplicate
     return False
