@@ -95,23 +95,62 @@ def maxProfit(prices):
 
 def containsDuplicate(nums):
     # Initialize object/dictionary data structure to hold numbers
-    hashset = {}
+    hashtable = {}
 
     # Iterate through nums array/list
     for idx in range(len(nums)):
         num = nums[idx]
         # if the num is already in the dictionary/object we know the list/arr doesnt hold distinct numbers
-        if num in hashset:
+        if num in hashtable:
             # return true because the arr/list holds a duplicate
             return True
         # If we dont have it in the set we add it
         # There is no need to add an else because the last if statement will shortcircut the algorithm
-        hashset[num] = idx
+        hashtable[num] = idx
     
     # return false if we didnt find a duplicate
     return False
 
 
+# ----------------Leetcode # 242 Valid Anagram ----------------
+
+# TIME - O(N)
+# SPACE - O(N)
+
+# Frequency counter
+
+def frequencyCounter(string):
+    # create a hashtable
+    hashtable = {}
+    # Iterate through string
+    for letter in string:
+        # If the letter is already in the hashtable increment the value by 1
+        if letter in hashtable:
+            hashtable[letter]+=1
+        # If the letter is not in the hashtable add it and initialize the value to 1
+        else:
+            hashtable[letter] = 1
+    # return the frequency count
+    return hashtable
+
+def isAnagram(word1, word2):
+
+    # If they are not the same length they are not anagrams of each other
+    if len(word1) != len(word2):
+        return False
+
+    # get the frequency count of the letters
+    firstCount = frequencyCounter(word1)
+    secondCount = frequencyCounter(word2)
+    
+    # Check to see if the letter count matches from both words
+    for char in firstCount:
+        if char not in secondCount or firstCount[char] != secondCount[char]:
+            return False
+    
+    # If the counts match then we return True
+    return True
+    
 
 
 
