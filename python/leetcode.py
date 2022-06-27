@@ -192,6 +192,7 @@ def isPalindrome(word):
         if letter.isalnum():
             # add to originalWord and lower
             nonAlphaNumWord+=letter.lower()
+
     # Initalize Left and Right pointers
     L = 0
     R = len(nonAlphaNumWord) - 1
@@ -214,11 +215,79 @@ def isPalindrome(word):
 
 
 
+# ----------------Leetcode # 155 MinStack ----------------
+
+# TIME - 0(1)
+#SPACE - O(N)
+
+class MinStack:
+
+    def __init__(self):
+        # Initialize stack and minimum vals stack
+        self.stack = []
+        self.minValsStack = []
+
+    def push(self, val: int) -> None:
+        # add val to the end of the normal stack
+        self.stack.append(val)
+
+        # if our stack is not empty
+        if self.minValsStack:
+            # get the minimum value between val and the last number in our min values stack and reassign val
+            val = min(val, self.minValsStack[-1])
+            # add the lesser number to our minValsStack
+            self.minValsStack.append(val)
+        # if our stack is empty we just append the val coming in as a parameter
+        else:
+            self.minValsStack.append(val)
+
+    def pop(self) -> None:
+        # take out the last item of the stack of each
+        self.stack.pop()
+        self.minValsStack.pop()
+    
+    def top(self) -> int:
+        # return the last item in the stack
+        return self.stack[-1]
+    
+    def getMin(self) -> int:
+        # return the last item in our minValsStack
+        # we kept track of the lowest number by comparing the incoming val with
+        # with the top of our min vals stack to stay up to date on the min val
+        return self.minValsStack[-1]
+    
 
 
+# ----------------Leetcode #704 Binary Search Binary Search ----------------
+# import the math module
+import math
+
+def binarySearch(nums, target):
+    # Initalize left and right pointers
+    left = 0
+    right = len(nums) - 1
+
+    # while the left is not greater than the right
+    while left <= right:
+        mid = math.floor((right + left) / 2)
+        # if the mid number we are at is the target return it
+        if nums[mid] == target:
+            return mid
+        # if the current number we are at is less than the target
+        elif nums[mid] < target:
+            # assign the mid plus one to the left pointer
+            left = mid + 1
+        # if the current number we are at is greater than the target
+        elif nums[mid] > target:
+            # assign the mid minus one to the right pointer
+            right = mid - 1
+    
+    # if we exit the while loop the number is not in our nums array
+    # so we return negative one
+    return -1
 
 
-
+print(binarySearch([-1,0,3,5,9,12], 9))
 
 
 
