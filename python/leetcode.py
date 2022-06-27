@@ -151,6 +151,80 @@ def isAnagram(word1, word2):
     # If the counts match then we return True
     return True
     
+# ----------------Leetcode # 125 Valid Palindrome ----------------
+
+# TIME - O(N)
+# SPACE = O(N)
+
+# a palindrome is a word that reads the same backward and forward
+
+# BRUTE FORCE SOLUTION
+
+# def isPalindrome(word):
+#     # remove non-alphanumeric characters
+#     originalWord = ""
+#     reversedWord = ""
+
+#       # Iterate through letter in word
+#     for letter in word:
+#         # if the letter is alphanumeric
+#         if letter.isalnum():
+#             # add to originalWord and lower
+#             originalWord+=letter.lower()
+
+#     # Iterate through letters in word in reverse order
+#     for letter in reversed(word):
+#         # if the letter is alphanumeric
+#         if letter.isalnum():
+#             # add it to the reversedWord and lower
+#             reversedWord+=letter.lower()
+
+#     # Compare the reversed word to the original word without nonalphanumeric characters
+#     return reversedWord == originalWord
+
+
+def isPalindrome(word):
+    # remove non-alphanumeric characters
+    nonAlphaNumWord = ""
+
+    for letter in word:
+        # if the letter is alphanumeric
+        if letter.isalnum():
+            # add to originalWord and lower
+            nonAlphaNumWord+=letter.lower()
+    # Initalize Left and Right pointers
+    L = 0
+    R = len(nonAlphaNumWord) - 1
+
+    # While Left pointer is less than Right pointer
+    while (L < R):
+        # If the letters on each side are equal
+        if nonAlphaNumWord[L] == nonAlphaNumWord[R]:
+            # move up the left pointer by one
+            L+=1
+            # move down the right pointer by one
+            R-=1
+        # if they dont match we return false
+        else:
+            return False
+
+    # If none of the last conditions are met we return true because its a palindome
+    return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
