@@ -261,6 +261,7 @@ class MinStack:
 # ----------------Leetcode #704 Binary Search Binary Search ----------------
 # import the math module
 import math
+from xml.dom import minidom
 
 def binarySearch(nums, target):
     # Initalize left and right pointers
@@ -286,8 +287,31 @@ def binarySearch(nums, target):
     # so we return negative one
     return -1
 
+# ----------------Leetcode #278 First Bad Version ----------------
 
-print(binarySearch([-1,0,3,5,9,12], 9))
+# TIME - O(LOGN)
+# SPACE - O(1)
+
+# PLACE HOLDER API
+def isBadVersion(version): 
+    return True
+
+def firstBadVersion(n):
+    l = 1
+    r = n
+    firstBadVersion = 0
+
+    while l <= r:
+        currentVersion = math.floor((r + l) / 2)
+
+        if isBadVersion(currentVersion):
+            r = currentVersion - 1
+            firstBadVersion = currentVersion
+        else:
+            l = currentVersion + 1
+    
+    return firstBadVersion
+
 
 
 
