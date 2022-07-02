@@ -312,11 +312,32 @@ def firstBadVersion(n):
     
     return firstBadVersion
 
+# ----------------Leetcode #Search Insert Position ----------------
 
+def searchInsert(nums, target):
 
+    leftPointer = 0
+    rightPointer = len(nums) - 1
+    mid: int
 
+    while leftPointer < rightPointer:
+        mid = math.floor((rightPointer + leftPointer) / 2)
 
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            leftPointer = mid + 1
+        elif nums[mid] > target:
+            rightPointer = mid - 1
 
+    if target > nums[-1]:
+        mid = len(nums)
+    elif target < nums[0]:
+        mid = 0
+    
+    print(mid)
+
+searchInsert([1,2,3,4], 3)
 
 
 
