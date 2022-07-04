@@ -65,19 +65,32 @@ class LinkedList:
                 break
             else:
                 currentNode = currentNode.nextNode
+    
+    def length(self):
+        currentNode = self.head
+        count = 0
+
+        while currentNode != None:
+            count+=1
+            currentNode = currentNode.nextNode
+
+        print(count)
 
 
-if __name__ == "__main__":
 
-    linkedList = LinkedList()
-    linkedList.insert("3")
-    linkedList.insert("5")
-    linkedList.insert("8")
-    linkedList.insert("12")
-    linkedList.printList()
-    linkedList.delete("5")
-    linkedList.insertAtBeginning("1")
-    linkedList.printList()
+
+linkedList = LinkedList()
+linkedList.insert("3")
+linkedList.insert("5")
+linkedList.insert("8")
+linkedList.insert("12")
+linkedList.printList()
+linkedList.delete("5")
+linkedList.insertAtBeginning("1")
+linkedList.printList()
+linkedList.length()
+linkedList.delete("12")
+linkedList.length()
 
 
             
