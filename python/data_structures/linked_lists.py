@@ -28,6 +28,11 @@ class LinkedList:
     def __init__(self, head=None):
         self.head = head
 
+
+    def insertAtBeginning(self, value):
+        node = Node(value, self.head)
+        self.head = node
+
     def insert(self, value):
         node = Node(value)
 
@@ -62,17 +67,17 @@ class LinkedList:
                 currentNode = currentNode.nextNode
 
 
+if __name__ == "__main__":
 
-linkedList = LinkedList()
-
-# linkedList.printList()
-linkedList.insert("3")
-linkedList.insert("5")
-linkedList.insert("8")
-linkedList.insert("12")
-linkedList.printList()
-linkedList.delete("5")
-linkedList.printList()
+    linkedList = LinkedList()
+    linkedList.insert("3")
+    linkedList.insert("5")
+    linkedList.insert("8")
+    linkedList.insert("12")
+    linkedList.printList()
+    linkedList.delete("5")
+    linkedList.insertAtBeginning("1")
+    linkedList.printList()
 
 
             
