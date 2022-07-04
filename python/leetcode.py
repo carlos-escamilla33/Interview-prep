@@ -262,7 +262,7 @@ def firstBadVersion(n):
         else:
             l = currentVersion + 1
     
-    return firstBadVersion
+    return l
 
 # ----------------Leetcode #Search Insert Position ----------------
 
