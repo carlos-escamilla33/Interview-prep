@@ -1,44 +1,80 @@
 
 # Creating Node class for linked list
+
 class Node:
-    def __init__(self, val=None):
-        self.val = val #Assigning data
-        self.next = None # Initalize next as null
+    def __init__(self, value, nextNode=None):
+        self.value = value
+        self.nextNode = nextNode
 
-#passing in value to Node class
-node1 = Node(1)
-# Giving node1 a next value
-node1.next = 2
+# node1 = Node("3")
+# node2 = Node("5")
+# node3 = Node("7")
+# node4 = Node("10")
 
-# LinkedList class
+# node1.nextNode = node2
+# node2.nextNode = node3
+# node3.nextNode = node4
+
+# # node1 -> node2 -> node3
+
+# currentNode = node1
+
+# while(currentNode != None):
+#     print (currentNode.value, "-->", end=" ")
+#     currentNode = currentNode.nextNode
+# print("None")
+
 class LinkedList:
-    def __init__(self):
-        self.head = None
+    def __init__(self, head=None):
+        self.head = head
 
-    def append(self, node):
+    def insert(self, value):
+        node = Node(value)
+
         if self.head is None:
-            self.head = Node(self.head)
-        else:
-            current = node.val
-            while current.next != None:
-                current = current.next
-            current.next = Node(node.val)
+            self.head = node
+            return
 
-    def print_list(self):
-        current = self.head
-        while current != None:
-            print(current.val)
-            current = current.next
+        currentNode = self.head
+        while currentNode != None:
+            if currentNode.nextNode == None:
+                currentNode.nextNode = node
+                break
+            else:
+                currentNode = currentNode.nextNode
+
+    def printList(self):
+        currentNode = self.head
+        
+        while currentNode != None:
+            print(currentNode.value, "-->", end=" ")
+            currentNode = currentNode.nextNode
         print("None")
+    
+    def delete(self, value):
+        currentNode = self.head
+
+        while currentNode != None:
+            if currentNode.nextNode.value == value:
+                currentNode.nextNode = currentNode.nextNode.nextNode
+                break
+            else:
+                currentNode = currentNode.nextNode
+
 
 
 linkedList = LinkedList()
-linkedList.append(node1)
 
-# linkedList.print_list()
+# linkedList.printList()
+linkedList.insert("3")
+linkedList.insert("5")
+linkedList.insert("8")
+linkedList.insert("12")
+linkedList.printList()
+linkedList.delete("5")
+linkedList.printList()
 
-        
-        
+
             
 
 
