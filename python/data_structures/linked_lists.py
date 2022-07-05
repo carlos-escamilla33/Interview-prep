@@ -6,23 +6,23 @@ class Node:
         self.value = value
         self.nextNode = nextNode
 
-# node1 = Node("3")
-# node2 = Node("5")
-# node3 = Node("7")
-# node4 = Node("10")
+node1 = Node("3")
+node2 = Node("5")
+node3 = Node("7")
+node4 = Node("10")
 
-# node1.nextNode = node2
-# node2.nextNode = node3
-# node3.nextNode = node4
+node1.nextNode = node2
+node2.nextNode = node3
+node3.nextNode = node4
 
-# # node1 -> node2 -> node3
+# node1 -> node2 -> node3
 
-# currentNode = node1
+currentNode = node1
 
-# while(currentNode != None):
-#     print (currentNode.value, "-->", end=" ")
-#     currentNode = currentNode.nextNode
-# print("None")
+while(currentNode != None):
+    print (currentNode.value, "-->", end=" ")
+    currentNode = currentNode.nextNode
+print("None")
 
 class LinkedList:
     def __init__(self, head=None):
