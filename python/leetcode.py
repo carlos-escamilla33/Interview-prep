@@ -246,6 +246,22 @@ def searchInsert(nums, target):
     
     return leftPointer
 
+# ----------------Leetcode #3 Longest Substring Without Repeating Characters ----------------
 
+def lengthOfLongestSubstring(s):
+    string = ""
+    j = 0
+
+    for i in range(len(s)):
+        while j < len(s):
+            if s[j] in string:
+                break
+            else:
+                string+=s[j]
+                j+=1
+    
+    print(string)
+
+lengthOfLongestSubstring("pwwkew")
 
 
