@@ -101,67 +101,28 @@ def containsDuplicate(nums):
 # TIME - O(N)
 # SPACE - O(N)
 
-# Frequency counter
-
-def frequencyCounter(string):
-
-    hashtable = {}
-
-    for letter in string:
-        if letter in hashtable:
-            hashtable[letter]+=1
-        else:
-            hashtable[letter] = 1
-
-    return hashtable
-
 def isAnagram(word1, word2):
-
 
     if len(word1) != len(word2):
         return False
 
-    firstCount = frequencyCounter(word1)
-    secondCount = frequencyCounter(word2)
+    hashtable = {}
+
+    for char in word1:
+        if char not in hashtable:
+            hashtable[char] = 1
+        else:
+            hashtable[char]+=1
     
-    for char in firstCount:
-        if char not in secondCount or firstCount[char] != secondCount[char]:
+    for char in word2:
+        if char not in hashtable or hashtable[char] == 0:
             return False
-    
+        else:
+            hashtable[char]-=1
 
     return True
     
 # ----------------Leetcode # 125 Valid Palindrome ----------------
-
-# TIME - O(N)
-# SPACE = O(N)
-
-# a palindrome is a word that reads the same backward and forward
-
-# BRUTE FORCE SOLUTION
-
-# def isPalindrome(word):
-#     # remove non-alphanumeric characters
-#     originalWord = ""
-#     reversedWord = ""
-
-#       # Iterate through letter in word
-#     for letter in word:
-#         # if the letter is alphanumeric
-#         if letter.isalnum():
-#             # add to originalWord and lower
-#             originalWord+=letter.lower()
-
-#     # Iterate through letters in word in reverse order
-#     for letter in reversed(word):
-#         # if the letter is alphanumeric
-#         if letter.isalnum():
-#             # add it to the reversedWord and lower
-#             reversedWord+=letter.lower()
-
-#     # Compare the reversed word to the original word without nonalphanumeric characters
-#     return reversedWord == originalWord
-
 
 def isPalindrome(word):
 
@@ -183,8 +144,6 @@ def isPalindrome(word):
 
    
     return True
-
-
 
 
 # ----------------Leetcode # 155 MinStack ----------------
