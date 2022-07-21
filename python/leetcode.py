@@ -123,26 +123,30 @@ def isAnagram(word1, word2):
     return True
     
 # ----------------Leetcode # 125 Valid Palindrome ----------------
-
-def isPalindrome(word):
-
-    nonAlphaNumWord = ""
-
-    for letter in word:
-        if letter.isalnum():
-            nonAlphaNumWord+=letter.lower()
-
-    L = 0
-    R = len(nonAlphaNumWord) - 1
-
-    while (L < R):
-        if nonAlphaNumWord[L] == nonAlphaNumWord[R]:
-            L+=1
-            R-=1
-        else:
-            return False
-
-   
+    
+def isAlpha(char):
+        return( 48 <= ord(char) <=57 or
+                65 <= ord(char) <= 90 or
+                97 <= ord(char) <= 122)
+    
+def isPalindrome(word: str) -> bool:
+    l = 0
+    r = len(word) - 1
+        
+    while l <= r:
+        leftChar = word[l].lower()
+        rightChar = word[r].lower()
+        if isAlpha(leftChar) and isAlpha(rightChar):
+            if leftChar == rightChar:
+                l+=1
+                r-=1
+            else:
+                return False
+        elif not(isAlpha(leftChar)):
+            l+=1
+        elif not(isAlpha(rightChar)):
+            r-=1
+        
     return True
 
 
@@ -210,20 +214,17 @@ def isBadVersion(version):
 def firstBadVersion(n):
     l = 1
     r = n
-    firstBadVersion = 0
 
     while l <= r:
         currentVersion = math.floor((r + l) / 2)
 
         if isBadVersion(currentVersion):
             r = currentVersion - 1
-            firstBadVersion = currentVersion
         else:
             l = currentVersion + 1
-    
     return l
 
-# ----------------Leetcode #Search Insert Position ----------------
+# ----------------Leetcode #35 Search Insert Position ----------------
 
 
 # TIME - O(LOGN)
@@ -261,7 +262,5 @@ def lengthOfLongestSubstring(s):
                 j+=1
     
     print(string)
-
-lengthOfLongestSubstring("pwwkew")
 
 
