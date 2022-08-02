@@ -1,3 +1,3 @@
 # Algorithm Practice 📖
 
-Practicing leetcode, algoexpert, udemy etc
+Practicing data structures and algorithms
