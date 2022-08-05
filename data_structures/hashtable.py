@@ -1,3 +1,4 @@
+
 class Hashtable(object):
     def __init__(self, length=4):
         self.array = [None] * length
