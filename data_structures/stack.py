@@ -1,4 +1,4 @@
-
+# LIFO = LAST IN FIRST OUT
 class Stack:
     def __init__(self):
         self.stack = []
