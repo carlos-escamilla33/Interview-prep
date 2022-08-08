@@ -263,4 +263,18 @@ def lengthOfLongestSubstring(s):
     
     print(string)
 
-# ----------------Leetcode #26 Remove Duplicates from Sorted Array ----------------
+# ----------------Leetcode #53 Maximum Subarray ----------------
+
+def maxSubArray(nums):
+    maxSum = float("-inf")
+    currSum = 0
+    l = 0
+
+    for i in range(len(nums)):
+        currSum+=nums[i]
+        while l < i and nums[i] >= currSum:
+            currSum = currSum - nums[l]
+            l+=1
+        maxSum = max(currSum, maxSum)
+    
+    return maxSum
