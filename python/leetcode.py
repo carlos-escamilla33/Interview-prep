@@ -268,11 +268,10 @@ def lengthOfLongestSubstring(s):
 def maxSubArray(nums):
     maxSum = float("-inf")
     currSum = 0
-    l = 0
 
     for i in range(len(nums)):
         currSum+=nums[i]
-        while l < i and nums[i] >= currSum:
+        if nums[i] >= currSum:
             currSum = currSum - nums[l]
             l+=1
         maxSum = max(currSum, maxSum)
