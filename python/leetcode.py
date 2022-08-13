@@ -295,4 +295,24 @@ def canConstruct(ransomNote, magazine):
         else:
             return False
     
-    return True
+    return True 
+
+# ----------------Leetcode #169 Majority Element ----------------
+
+def majorityElement(nums):
+    freqHt = {}
+    numOccurrences = 0
+    majorityNum = float("-inf")
+
+    for num in nums:
+        if num in freqHt:
+            freqHt[num]+=1
+        else:
+            freqHt[num] = 1
+    
+    for num in freqHt:
+        if freqHt[num] > numOccurrences:
+            majorityNum = num
+            numOccurrences = freqHt[num]
+
+    return majorityNum
