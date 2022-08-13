@@ -277,3 +277,22 @@ def maxSubArray(nums):
         maxSum = max(currSum, maxSum)
     
     return maxSum
+
+# ----------------Leetcode #383 Ransom Note ----------------
+
+def canConstruct(ransomNote, magazine):
+    magHt = {}
+
+    for char in magazine:
+        if char not in magHt:
+            magHt[char] = 1
+        else:
+            magHt[char]+=1
+    
+    for char in ransomNote:
+        if char in magHt and magHt[char] > 0:
+            magHt[char]-=1
+        else:
+            return False
+    
+    return True
