@@ -13,20 +13,20 @@ def num_counter(start, end):
 # binary search for a word and returns whether it is in the list
 import math
 
-def findWord(arr, word):
+def findWord(arr, target):
     l = 0
     r = len(arr) - 1
 
     while l <= r:
         mid = math.floor((r + l) / 2)
 
-        if arr[mid] == word:
-            return arr[mid]
-        elif ord(arr[mid][0]) < ord(word[0]):
+        if arr[mid] == target:
+            return mid
+        elif ord(arr[mid][0]) < ord(target[0]):
             l+=1
         else:
             r-=1
 
     print("Word not array")
 
-# print(findWord(["apple", "bee", "caramel", "daisy", "flower"], "daisy"))
+# print(findWord(["apple", "bee", "caramel", "daisy", "flower"], "flower"))
