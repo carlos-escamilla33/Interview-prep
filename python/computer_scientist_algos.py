@@ -8,3 +8,25 @@ def num_counter(start, end):
     return num_counter(start + 1, end)
 
 # num_counter(1, 10)
+
+# Given a list of words in alphabetical order, write a function that performs
+# binary search for a word and returns whether it is in the list
+import math
+
+def findWord(arr, word):
+    l = 0
+    r = len(arr) - 1
+
+    while l <= r:
+        mid = math.floor((r + l) / 2)
+
+        if arr[mid] == word:
+            return arr[mid]
+        elif ord(arr[mid][0]) < ord(word[0]):
+            l+=1
+        else:
+            r-=1
+
+    print("Word not array")
+
+# print(findWord(["apple", "bee", "caramel", "daisy", "flower"], "daisy"))
