@@ -21,7 +21,7 @@ def findWord(arr, target):
         mid = math.floor((r + l) / 2)
 
         if arr[mid] == target:
-            return mid
+            return f'Word is in index: {mid}'
         elif ord(arr[mid][0]) < ord(target[0]):
             l+=1
         else:
