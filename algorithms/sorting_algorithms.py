@@ -16,4 +16,19 @@ def bubbleSort(arr):
 
 
 
-print(bubbleSort([32,1,9,6]))
+# print(bubbleSort([32,1,9,6]))
+
+def insertionSort(arr):
+    for i in range(1, len(arr)):
+        value = arr[i]
+        while i > 0 and arr[i-1] > value:
+            arr[i] = arr[i-1]
+            i-=1
+        arr[i] = value
+    return arr
+
+# print(insertionSort([6,5,8,2]))
+
+
+
+
