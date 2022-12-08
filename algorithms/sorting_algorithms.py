@@ -14,8 +14,6 @@ def bubbleSort(arr):
 
     return arr
 
-
-
 # print(bubbleSort([32,1,9,6]))
 
 def insertionSort(arr):
