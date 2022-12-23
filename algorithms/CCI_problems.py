@@ -60,4 +60,18 @@ def isPermutation(s1, s2):
 
 # print(isPermutation("ABCC", "BACC"))
 
+def urlify(s, length):
+    s1 = length * [0]
+    for i in range(length):
+        asciiVal = ord(s[i])
+        if asciiVal == 32:
+            s1[i] = "%20"
+        else:
+            s1[i] = s[i]
+
+    return "".join(s1)
+
+print(urlify("Mr John Smith    ", 13))
+            
+
 
