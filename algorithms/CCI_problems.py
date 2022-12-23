@@ -60,6 +60,9 @@ def isPermutation(s1, s2):
 
 # print(isPermutation("ABCC", "BACC"))
 
+# Write a method to replace all spaces in a string with "%20". You may assume that the string has sufficient
+# space at the end to hold the additional characters, and that you given the "true" length of the string.
+
 def urlify(s, length):
     s1 = length * [0]
     for i in range(length):
@@ -71,7 +74,7 @@ def urlify(s, length):
 
     return "".join(s1)
 
-print(urlify("Mr John Smith    ", 13))
+# print(urlify("Mr John Smith    ", 13))
             
 
 
