@@ -81,7 +81,7 @@ def urlify(s, length):
 # rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
 # You can ignore casing and non-letter characters
 
-def palPer(s):
+def isPalindromePermutation(s):
     charCount = 128 * [0]
     oddCount = 0
     for l in s:
@@ -95,7 +95,28 @@ def palPer(s):
                 return False
     return True
 
-print(palPer("kayak!"))
+# print(isPalindromePermutation("kayak!"))
+
+# There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character.
+# Given two strings, write a function to check if they are one edit (or zero edits) away.
+
+def oneAway(s1, s2):
+    modCount = 0
+    charArr = 128 * [0]
+    for letter in s2:
+        aVal = ord(letter)
+        charArr[aVal]+=1
+    for letter in s1:
+        aVal = ord(letter)
+        if charArr[aVal] < 1:
+            modCount+=1
+            if modCount > 1:
+                return False
+    return True
+
+print(oneAway("pale", "bake"))
+
+
             
 
 
