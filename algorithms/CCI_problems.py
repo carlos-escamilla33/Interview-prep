@@ -75,6 +75,27 @@ def urlify(s, length):
     return "".join(s1)
 
 # print(urlify("Mr John Smith    ", 13))
+
+# Given a string, write a function to check if it is a permutation of a palindrome.
+# A palindrome is a word or a phrase that is the same forwards and backwards. A permutation is a 
+# rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
+# You can ignore casing and non-letter characters
+
+def palPer(s):
+    charCount = 128 * [0]
+    oddCount = 0
+    for l in s:
+        asciiVal = ord(l.lower())
+        if 65 <= asciiVal <= 90 or 97 <= asciiVal <= 122:
+            charCount[asciiVal]+=1
+    for val in charCount:
+        if val % 2 != 0:
+            oddCount+=1
+            if oddCount > 1:
+                return False
+    return True
+
+print(palPer("kayak!"))
             
 
 
