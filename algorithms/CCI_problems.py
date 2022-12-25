@@ -114,7 +114,7 @@ def oneAway(s1, s2):
                 return False
     return True
 
-print(oneAway("pale", "bake"))
+print(oneAway("pale", "bae"))
 
 
             
