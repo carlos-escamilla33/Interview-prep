@@ -114,7 +114,28 @@ def oneAway(s1, s2):
                 return False
     return True
 
-print(oneAway("pale", "pae"))
+# print(oneAway("pale", "pae"))
+
+# Implement a method to perform basic string compression using the counts of repeated characters.
+# For example, the string aabccccaaa would become a2b1c5a3. If the compressed string would not become
+# smaller than the original string, your method should return the original string. You can assume
+# the string has only uppercase and lowercase letters(a-z).
+
+# example:
+# aabcccccaaa -> a2b1c5a3
+
+
+def stringCompression(s):
+    finalStr = ""
+    consecCont = 0
+    for i in range(len(s)):
+        consecCont+=1
+        if i + 1 >= len(s) or s[i] != s[i+1]:
+            finalStr+=f"{s[i]}{consecCont}"
+            consecCont = 0
+    return finalStr if len(finalStr) < len(s) else s
+
+print(stringCompression("aabcccccaaa"))
 
 
             
