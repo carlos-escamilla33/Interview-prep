@@ -135,7 +135,7 @@ def stringCompression(s):
             consecCont = 0
     return finalStr if len(finalStr) < len(s) else s
 
-print(stringCompression("aabcccccaaa"))
+# print(stringCompression("aabcccccaaa"))
 
 
             
