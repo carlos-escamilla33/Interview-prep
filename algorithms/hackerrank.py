@@ -20,3 +20,24 @@ def standardToMilitaryTime(time):
     
     else:
         print(f"{hour}:{minutes}:{seconds}")
+
+# ------------------------
+
+def solution(s1, s2):
+    charCount = 128 * [0]
+    for char in s1:
+        aIdx = ord(char)
+        charCount[aIdx]+=1
+        
+    count = 0
+    for char in s2:
+        aIdx = ord(char)
+        val = charCount[aIdx]
+        if val > 0:
+            charCount[aIdx]-=1
+            count+=1
+    return count
+
+s1 = "aabcc"
+s2 = "adcaa"
+# print(solution(s1, s2))
