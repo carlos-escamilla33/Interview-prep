@@ -53,26 +53,19 @@ def mergeTwoSortedLists(list1, list2):
 
 # ----------------Leetcode # 121 Best Time to Buy and Sell Stock ----------------
 
-prices = [7,1,5,3,6,4]
-
 def maxProfit(prices):
+    maxPro = 0
+    ptr = 0
+    for i in range(1, len(prices)):
+        currPro = prices[i] - prices[ptr]
+        if currPro < 0:
+            currPro = 0
+            ptr = i
+        maxPro = max(maxPro, currPro)
+    return maxPro
 
-    maxProfit = 0
- 
-    currMin = prices[0]
+print(maxProfit([7,1,5,3,6,4]))
 
-
-    for i in range(len(prices)):
-        price = prices[i]
-        currProfit = price - currMin
-        
-        if currProfit > maxProfit:
-            maxProfit = currProfit
-    
-        elif price < currMin:
-            currMin = price
-    
-    return maxProfit
 
 # ----------------Leetcode # 217 Contains Duplicate ----------------
 
