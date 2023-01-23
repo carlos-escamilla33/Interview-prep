@@ -1,5 +1,5 @@
 class Node:
-   def __init__(self, data, next = None):
+   def __init__(self, data = 0, next = None):
         self.data = data
         self.next = next
 
@@ -46,12 +46,34 @@ class LinkedList:
             previous = current
             current = current.next
 
-ll = LinkedList()
-ll.append(1)
-ll.append(3)
-ll.append(4)
-ll.append(9)
-ll.printList()
-# print(ll.search(3))
-ll.remove(3)
-ll.printList()
+list1 = LinkedList()
+list1.append(1)
+list1.append(2)
+list1.append(4)
+list2 = LinkedList()
+list2.append(1)
+list2.append(3)
+list2.append(4)
+
+def mergeTwoLists(list1, list2):
+    head = Node()
+    current1 = list1
+    current2 = list2
+    while current1 and current2:
+        if current1.data > current2.data:
+            head.next = Node(current1.data)
+        elif current1.data < current2.data:
+            head.next = Node(current2.val)
+        current1 = current1.next
+        current2 = current2.next
+        head = head.next
+    
+    if not current1:
+        head.next = current1
+    elif not current2:
+        head.next = current2
+    
+    return head.next
+
+# print(mergeTwoLists(list1, list2))
+

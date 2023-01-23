@@ -64,7 +64,7 @@ def maxProfit(prices):
         maxPro = max(maxPro, currPro)
     return maxPro
 
-print(maxProfit([7,1,5,3,6,4]))
+# print(maxProfit([7,1,5,3,6,4]))
 
 
 # ----------------Leetcode # 217 Contains Duplicate ----------------
@@ -121,25 +121,20 @@ def isAlpha(char):
         return( 48 <= ord(char) <=57 or
                 65 <= ord(char) <= 90 or
                 97 <= ord(char) <= 122)
-    
-def isPalindrome(word: str) -> bool:
+
+def isPalindrome(s):
     l = 0
-    r = len(word) - 1
-        
-    while l <= r:
-        leftChar = word[l].lower()
-        rightChar = word[r].lower()
-        if isAlpha(leftChar) and isAlpha(rightChar):
-            if leftChar == rightChar:
-                l+=1
-                r-=1
-            else:
-                return False
-        elif not(isAlpha(leftChar)):
+    r = len(s) - 1
+    while l < r:
+        if s[l].lower() == s[r].lower() and isAlpha(s[l]) and isAlpha(s[r]):
             l+=1
-        elif not(isAlpha(rightChar)):
             r-=1
-        
+        elif not isAlpha(s[l]):
+            l+=1
+        elif not isAlpha(s[r]):
+            r-=1
+        else:
+            return False
     return True
 
 
