@@ -25,5 +25,35 @@ def printRecursively(head):
     print(head.val)
     printRecursively(head.next)
 
-printRecursively(a)
+# printRecursively(a)
 # printLL(a)
+
+# Linked List Values
+# Write a function, linkedlistValues, that takes in the head of a linked list as an argument.
+# The function should return an array containing all values of the nodes in the linked list
+
+def linkedListValues(head):
+    nodeArr = []
+    current = head
+    while current:
+        nodeArr.append(current.val)
+        current = current.next
+    print(nodeArr)
+
+def fillValues(head, nodeArr):
+    if not head:
+        return nodeArr
+    nodeArr.append(head.val)
+    fillValues(head.next, nodeArr)
+
+def linkedListValuesRecurr(head):
+    nodeArr = []
+    fillValues(head, nodeArr)
+    print(nodeArr)
+
+
+# linkedListValues(a)
+
+linkedListValuesRecurr(a)
+
+
