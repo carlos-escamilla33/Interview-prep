@@ -4,14 +4,24 @@ class Node:
         self.next = next
 
 
-a = Node(4)
-b = Node(10)
-c = Node(3)
-d = Node(40)
+a = Node("A")
+b = Node("B")
+c = Node("C")
+d = Node("D")
+
+e = Node("e")
+f = Node("f")
+g = Node("g")
+h = Node("h")
+
 
 a.next = b
 b.next = c
 c.next = d
+
+e.next = f
+f.next = g
+g.next = h
 
 def printLL(head):
     current = head
@@ -122,4 +132,52 @@ def findByIdxRecurr(head, idx):
 # print(findByIdx(a, 2))
 # print(findByIdxRecurr(a, 9))
 
+# Reverse a linked list
 
+def reverseLinkedList(head):
+    prev = None
+    current = head
+    while current:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    return prev
+
+def reverseLinkedListRecurr(head, prev = None):
+    if not head:
+        return prev
+    next = head.next
+    head.next = prev
+    return reverseLinkedListRecurr(next, head)
+
+# n = reverseLinkedListRecurr(a)
+# printLL(n)
+
+# Combine two linked lists
+
+def combineLinkedLists(head1, head2):
+    tail = head1
+    current1 = head1.next
+    current2 = head2
+    count = 0
+    while current1 and current2:
+        if count % 2 == 0:
+            tail.next = current2
+            current2 = current2.next
+        else:
+            tail.next = current1
+            current1 = current1.next
+        tail = tail.next
+        count+=1
+    if current1:
+        tail.next = current1
+    if current2:
+        tail.next = current2
+    return head1
+    
+
+result = combineLinkedLists(a, e)
+printLL(result)
+
+    
