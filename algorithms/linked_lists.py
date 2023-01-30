@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, val, next = None):
+    def __init__(self, val = 0, next = None):
         self.val = val
         self.next = next
 
@@ -195,5 +195,38 @@ def hasCycle(head):
     return False
         
 
-print(hasCycle(a))
+# print(hasCycle(a))
+
+# remove linked list elements
+
+def removeElements(head, val):
+    dummyNode = Node()
+    tail = dummyNode
+    current = head
+    while current:
+        if current.val != val:
+            tail.next = current
+            tail = tail.next
+        current = current.next
+    tail.next = None
+    return dummyNode.next
+
+a = Node(1)
+b = Node(2)
+c = Node(6)
+d = Node(3)
+e = Node(4)
+f = Node(5)
+g = Node(6)
+
+a.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = f
+f.next = g
+
+result = (removeElements(a, 6))
+printLL(result)
+
     

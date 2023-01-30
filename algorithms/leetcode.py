@@ -325,3 +325,17 @@ def mergeTwoLists(list1, list2):
     elif current2:
         tail.next = current2
     return dummyNode.next
+
+# ----------------Leetcode #203 Remove Linked List Elements ----------------
+
+def removeElement(head, val):
+    dummyNode = ListNode()
+    tail = dummyNode
+    current = head
+    while current:
+        if current.val != val:
+            tail.next = current
+            tail = tail.next
+        current = current.next
+    tail.next = None
+    return dummyNode.next
