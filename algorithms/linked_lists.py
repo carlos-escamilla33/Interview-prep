@@ -176,8 +176,24 @@ def combineLinkedLists(head1, head2):
         tail.next = current2
     return head1
     
+# Linked list Cycle
 
-result = combineLinkedLists(a, e)
-printLL(result)
+a = Node(3)
+b = Node(2)
+c = Node(0)
+d = Node(-4)
 
+
+def hasCycle(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
+        
+
+print(hasCycle(a))
     

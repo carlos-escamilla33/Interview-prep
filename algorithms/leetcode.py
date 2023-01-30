@@ -324,4 +324,4 @@ def mergeTwoLists(list1, list2):
         tail.next = current1
     elif current2:
         tail.next = current2
-    return dummyNode
+    return dummyNode.next
