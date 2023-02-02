@@ -24,3 +24,20 @@ c.right = f
 #        d    e        f
 
 
+# Depth first traversal
+# use a stack
+# check if stack is empty
+# check if the node has been visited
+
+def depthFirstValues(root):
+    stack = [root]
+    while len(stack) > 0:
+        current = stack.pop()
+        print(current.val)
+        if current.left:
+            stack.append(current.left)
+        if current.right:
+            stack.append(current.right)
+
+depthFirstValues(a)
+        
