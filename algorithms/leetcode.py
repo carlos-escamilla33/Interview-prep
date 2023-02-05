@@ -339,3 +339,15 @@ def removeElement(head, val):
         current = current.next
     tail.next = None
     return dummyNode.next
+
+# ----------------Leetcode #141 Linked List Cycle ----------------
+
+def hasCycle(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False

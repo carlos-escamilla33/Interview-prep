@@ -30,14 +30,25 @@ c.right = f
 # check if the node has been visited
 
 def depthFirstValues(root):
+    if not root:
+        return []
+    result = []
     stack = [root]
     while len(stack) > 0:
         current = stack.pop()
-        print(current.val)
+        result.append(current.val)
         if current.left:
             stack.append(current.left)
         if current.right:
             stack.append(current.right)
+    return result
 
-depthFirstValues(a)
+# depthFirstValues(a)
+
+# def dfsRecursive(root):
+#     if not root:
+
+
+
+
         
