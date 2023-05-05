@@ -351,3 +351,45 @@ def hasCycle(head):
         if slow == fast:
             return True
     return False
+
+# ----------------Leetcode #1768 Merge Strings Alternately ----------------
+
+class Solution:
+    def __init__(self):
+        self._result = []
+        self._size = 0
+    
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        self._size = len(word1) + len(word2)
+        
+        w1Idx = 0
+        w2Idx = 0
+        switch = True
+
+        for _ in range(self._size):
+            if switch:
+                self._result.append(word1[w1Idx])
+                w1Idx+=1
+                switch = False
+            else:
+                self._result.append(word2[w2Idx])
+                w2Idx+=1
+                switch = True
+
+        # if w1Idx < w2Idx:
+        #     for i in range(w1Idx, w2Idx):
+        #         self._result(word1[i])
+        # elif w2Idx < w1Idx:
+        #     for i in range(w2Idx, w1Idx):
+        #         self._result(word1[i])
+
+        print(self._result)
+
+
+w = Solution()
+w.mergeAlternately("ab", "pqrs")
+
+
+        
+
+    
