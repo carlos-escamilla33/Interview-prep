@@ -359,35 +359,35 @@ class Solution:
         self._result = []
         self._size = 0
     
-    def mergeAlternately(self, word1: str, word2: str) -> str:
-        self._size = len(word1) + len(word2)
-        
+    def mergeAlternately(self, word1: str, word2: str) -> str:  
         w1Idx = 0
         w2Idx = 0
-        switch = True
+        minSize = min(len(word1), len(word2))
 
-        for _ in range(self._size):
-            if switch:
-                self._result.append(word1[w1Idx])
-                w1Idx+=1
-                switch = False
-            else:
+        while w1Idx < minSize and w2Idx < minSize:
+            self._result.append(word1[w1Idx])
+            self._result.append(word2[w2Idx])
+            w1Idx+=1
+            w2Idx+=1
+        
+        if len(word2) > len(word1):
+            while w2Idx < len(word2):
                 self._result.append(word2[w2Idx])
                 w2Idx+=1
-                switch = True
+        elif len(word1) > len(word2):
+            while w1Idx < len(word1):
+                self._result.append(word1[w1Idx])
+                w1Idx+=1
+        
+        print("".join(self._result))
+        
 
-        # if w1Idx < w2Idx:
-        #     for i in range(w1Idx, w2Idx):
-        #         self._result(word1[i])
-        # elif w2Idx < w1Idx:
-        #     for i in range(w2Idx, w1Idx):
-        #         self._result(word1[i])
 
-        print(self._result)
+        
 
 
 w = Solution()
-w.mergeAlternately("ab", "pqrs")
+w.mergeAlternately("abcd", "pq")
 
 
         
