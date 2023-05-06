@@ -360,24 +360,14 @@ class Solution:
         self._size = 0
     
     def mergeAlternately(self, word1: str, word2: str) -> str:  
-        w1Idx = 0
-        w2Idx = 0
-        minSize = min(len(word1), len(word2))
+        idx = 0
 
-        while w1Idx < minSize and w2Idx < minSize:
-            self._result.append(word1[w1Idx])
-            self._result.append(word2[w2Idx])
-            w1Idx+=1
-            w2Idx+=1
-        
-        if len(word2) > len(word1):
-            while w2Idx < len(word2):
-                self._result.append(word2[w2Idx])
-                w2Idx+=1
-        elif len(word1) > len(word2):
-            while w1Idx < len(word1):
-                self._result.append(word1[w1Idx])
-                w1Idx+=1
+        while idx < len(word1) or idx < len(word2):
+            if idx < len(word1):
+                self._result.append(word1[idx])
+            if idx < len(word2):
+                self._result.append(word2[idx])
+            idx+=1
         
         print("".join(self._result))
         
