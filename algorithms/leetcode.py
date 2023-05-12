@@ -372,14 +372,20 @@ class Solution:
         print("".join(self._result))
         
 
+# ----------------Leetcode #1768 Merge Strings Alternately ----------------
 
-        
+def shuffle(nums, n):
+    res = []
+    i = 0
+    j = n
 
-
-w = Solution()
-w.mergeAlternately("abcd", "pq")
-
-
+    while j < len(nums):
+        res.append(nums[i])
+        res.append(nums[j])
+        i+=1
+        j+=1
+    
+    return res
         
 
     
