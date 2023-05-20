@@ -386,6 +386,15 @@ def shuffle(nums, n):
         j+=1
     
     return res
-        
+
+# ----------------Leetcode #1431 Kids With the Greatest Number of Candies----------------
+
+def kidsWithCandies(candies, extraCandies):
+    mostCandies = max(candies)
+    boolArr = []
+    for candy in candies:
+        currAmt = extraCandies + candy
+        boolArr.append(True) if currAmt >= mostCandies else boolArr.append(False)
+    return boolArr
 
     
