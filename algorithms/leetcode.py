@@ -369,7 +369,7 @@ class Solution:
                 self._result.append(word2[idx])
             idx+=1
         
-        print("".join(self._result))
+        # print("".join(self._result))
         
 
 # ----------------Leetcode #1768 Merge Strings Alternately ----------------
@@ -397,4 +397,41 @@ def kidsWithCandies(candies, extraCandies):
         boolArr.append(True) if currAmt >= mostCandies else boolArr.append(False)
     return boolArr
 
+
+# ----------------Leetcode #2574 Left and Right Sum Differences----------------
+
+def leftRightDifferences(nums):
+    leftSum = []
+    rightSum = []
+
+    for i in range(len(nums)):
+        if i == 0:
+            leftSum.append(0)
+        else :
+            currSum = leftSum[i-1] + nums[i - 1]
+            leftSum.append(currSum)
+
+    for i in range(len(nums) - 1, 0, -1):
+        if i == len(nums) - 1:
+            rightSum.insert(0, 0)
+        else:
+            currSum = rightSum[i - (i+1)] + nums[i - 1]
+        
+    print(rightSum)
     
+
+# leftRightDifferences([10,4,8,3])
+
+# ----------------Leetcode #1672 Richest Customer Wealth----------------
+
+def maximumWealth(accounts):
+    richest = 0
+
+    for i in range(len(accounts)):
+        currMax = 0
+        for j in range(len(accounts[i])):
+            currNum = accounts[i]
+            currMax+=currNum
+        richest = max(currMax, richest)
+    
+    return richest
