@@ -43,8 +43,7 @@ class LinkedList:
             tempPtr = tempPtr.next
 
     def append(self, value):
-        # create a new node
-        node = Node(value)
+        node = Node(value) # create a new node
 
         if self.head is None:
             self.head = node
@@ -55,6 +54,30 @@ class LinkedList:
 
         self.length+=1
         return True
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        
+        headPtr = self.head
+        tempPtr = self.head
+
+        while tempPtr.next: # wont run if the next node is None
+            headPtr = tempPtr # moves the headPtr to the place of the tempPtr/ saves current tmp
+            tempPtr = tempPtr.next # moves tempPtr to the next node
+
+        self.tail = headPtr # assigns the tail to the node bofore the last tail node
+        self.tail.next = None # deletes the next node by setting it to None
+        self.length -=1
+
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+
+        return tempPtr
+
+                
+        
         
     # def prepend(self, value):
     #     # create new node
@@ -65,8 +88,15 @@ class LinkedList:
 
 
 
-ll = LinkedList()
+ll = LinkedList(2)
 ll.append(4)
+ll.append(1)
+ll.append(3)
 
+print(ll.print_list())
+
+print("----------------------")
+
+ll.pop()
 print(ll.print_list())
 
