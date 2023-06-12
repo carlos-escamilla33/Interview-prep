@@ -75,28 +75,27 @@ class LinkedList:
             self.tail = None
 
         return tempPtr
+             
+    def prepend(self, value):
+        node = Node(value) # create new node
+        
+        if self.length == 0:
+            self.head = node
+            self.tail = node
+        else:
+            node.next = self.head
+            self.head = node
 
-                
-        
-        
-    # def prepend(self, value):
-    #     # create new node
-    #     # add node to beginning
+        self.length+=1
+        return True
+
     # def insert(self, index, value):
     #     # create new node
     #     # insert node
 
-
-
-ll = LinkedList(2)
-ll.append(4)
-ll.append(1)
+ll = LinkedList(9)
 ll.append(3)
-
-print(ll.print_list())
-
-print("----------------------")
-
-ll.pop()
-print(ll.print_list())
+ll.append(2)
+ll.prepend(4)
+ll.print_list()
 
