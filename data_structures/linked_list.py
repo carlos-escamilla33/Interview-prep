@@ -88,6 +88,21 @@ class LinkedList:
 
         self.length+=1
         return True
+    
+    def pop(self):
+        tempPtr = self.head
+
+        if self.length == 0:
+            return None
+        
+        self.head = self.head.next
+        tempPtr.next = None
+        self.length-=1
+            
+        if self.length == 0:
+            self.tail = None
+
+        return tempPtr
 
     # def insert(self, index, value):
     #     # create new node
@@ -97,5 +112,6 @@ ll = LinkedList(9)
 ll.append(3)
 ll.append(2)
 ll.prepend(4)
+ll.pop()
 ll.print_list()
 
