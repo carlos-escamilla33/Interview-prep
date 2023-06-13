@@ -104,14 +104,32 @@ class LinkedList:
 
         return tempPtr
 
-    # def insert(self, index, value):
-    #     # create new node
-    #     # insert node
+    def get(self, index):
+        i = 0
+        temp = self.head
+
+        while temp:
+            if i == index:
+                return temp
+            temp = temp.next
+            i+=1
+        
+        return None
+    # def get(self, index):
+    #     if index < 0 and index > self.length:
+    #         return None
+        
+    #     temp = self.head
+
+    #     for _ in range(index):
+    #         temp = temp.next
+
+    #     return temp
+            
 
 ll = LinkedList(9)
 ll.append(3)
 ll.append(2)
-ll.prepend(4)
-ll.pop()
-ll.print_list()
+# ll.prepend(4)
+print(ll.get(1).value)
 
