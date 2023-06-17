@@ -21,7 +21,7 @@ head = {
 
 
 class Node:
-    def __init__(self, value):
+    def __init__(self, value = 0):
         self.value = value
         self.next = None
 
@@ -177,9 +177,37 @@ class LinkedList:
             temp = after
 
 
-ll = LinkedList(1)
-ll.append(2)
-ll.append(3)
-ll.append(4)
-ll.reverse()
-ll.print_list()
+
+# ll = LinkedList(1)
+# ll.append(2)
+# ll.append(3)
+# ll.append(4)
+def reverse(head):
+    dummy = Node()
+    headPtr = dummy
+    temp = head
+    after = temp.next
+    before = None
+
+    while temp.next:
+        after = temp.next   
+        temp.next = before
+        before = temp
+        headPtr.next = temp
+        headPtr = headPtr.next
+        temp = after
+
+    return headPtr
+n1 = Node(0)
+n2 = Node(1)
+n3 = Node(2)
+n1.next = n2
+n2.next = n3
+
+
+ll2 = reverse(n1)
+ptr = ll2
+
+while ptr:
+    print(ptr.value)
+    ptr = ptr.next
