@@ -1,18 +1,49 @@
 
-def shuffle(nums, n):
-    for i in range(n):
-        nums[i]= nums[i] << 10
-        nums[i] = nums[i] | nums[i + n] # this will store the x, y vals together in binary
+class Node:
+    def __init__(self, val = 0):
+        self.val = val
+        self.next = None
 
-    j = 2 * n - 1
-    for i in range(n - 1, -1, -1):
-        y = nums[i] & (2**10 - 1)
-        x = nums[i] >> 10
-        nums[j] = y
-        nums[j - 1] = x
-        j-=2
+class LinkedList:
+    def __init__(self, val):
+        new_node = Node(val)
+        self.head = new_node
+    
+    def append(self, val):
+        node = Node(val)
 
+        if self.head is None:
+            self.head = node
+        
+        curr = self.head
 
-    return nums
+        while curr:
+            if curr.next == None:
+                curr.next = node
+                return True
+            curr = curr.next
+    
+    def printLL(self):
+        curr = self.head
 
-shuffle([2,5,1,3,4,7], 3)
+        while curr:
+            print(curr.val)
+            curr = curr.next
+
+    def find_middle_node(self):
+        slow = self.head
+        fast = self.head
+
+        while fast != None and fast.next != None:
+            slow = slow.next
+            fast = fast.next.next
+
+        print(slow.val)
+    
+
+ll = LinkedList(1)
+ll.append(2)
+# ll.append(3)
+ll.append(4)
+ll.append(5)
+ll.find_middle_node()
