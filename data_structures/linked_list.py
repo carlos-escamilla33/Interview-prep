@@ -189,7 +189,7 @@ def reverse(head):
     after = temp.next
     before = None
 
-    while temp.next:
+    while temp:
         after = temp.next   
         temp.next = before
         before = temp
