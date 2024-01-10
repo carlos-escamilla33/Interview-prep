@@ -39,4 +39,25 @@ def findMaxSumSubArray(arr, k):
     return maxSum
 
 
-print(findMaxSumSubArray([2, 3, 4, 1, 5], 2))
+# print(findMaxSumSubArray([2, 3, 4, 1, 5], 2))
+
+def findMinSubArray(arr, s):
+    minLen = 0
+    currLen = 0
+    currSum = 0
+    windowStart = 0
+
+    for windowEnd in range(len(arr)):
+        currSum += arr[windowEnd]
+        while currSum >= s:
+            currLen = (windowEnd - windowStart) + 1
+            currSum -= arr[windowStart]
+            windowStart += 1
+        if minLen == 0 and currLen > 0:
+            minLen = currLen
+        else:
+            minLen = min(minLen, currLen)
+
+    return minLen
+
+print(findMinSubArray([3, 4, 1, 1, 6], 8))
