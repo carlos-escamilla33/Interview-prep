@@ -56,4 +56,50 @@ def findMinSubArray(arr, s):
         return 0
     return minLen
 
-print(findMinSubArray([1, 1, 1, 1, 1, 1], 7))
+# print(findMinSubArray([1, 1, 1, 1, 1, 1], 7))
+
+def findLength(str1, k):
+    windowStart = 0
+    maxLength = 0
+    charFrequency = {}
+
+    for windowEnd in range(len(str1)):
+        rightChar = str1[windowEnd]
+        if rightChar not in charFrequency:
+            charFrequency[rightChar] = 0
+        charFrequency[rightChar] += 1
+
+        while len(charFrequency) > k:
+            leftChar = str1[windowStart]
+            charFrequency[leftChar] -= 1
+            if charFrequency[leftChar] == 0:
+                del charFrequency[leftChar]
+            windowStart += 1
+
+        maxLength = max(maxLength, windowEnd - windowStart + 1)
+    
+    return maxLength
+
+string="araaci"
+K=1
+# print(findLength(string, K))
+
+def strStr(haystack, needle):
+    firstOccuranceIdx = -1
+    i = 0
+    while i < len(haystack):
+        j = 0
+        idx = i
+        while j < len(needle) and idx < len(haystack) and haystack[idx] == needle[j]:
+            idx += 1
+            j += 1
+        if j == len(needle):
+            firstOccuranceIdx = idx - j
+            break
+        i += 1
+
+    return firstOccuranceIdx
+
+haystack = "mississippi"
+needle = "issip"
+print(strStr(haystack, needle))
