@@ -95,11 +95,43 @@ def strStr(haystack, needle):
             j += 1
         if j == len(needle):
             firstOccuranceIdx = idx - j
-            break
+            return idx - j
         i += 1
 
     return firstOccuranceIdx
 
-haystack = "mississippi"
-needle = "issip"
-print(strStr(haystack, needle))
+def longestSubstring(s, k):
+    maxLength = 0
+    
+    # for 
+    return maxLength
+
+s = "ababacb"
+k = 3
+
+print(longestSubstring(s, k))
+
+def decrypt(code, k):
+    n = len(code)
+    result = [0] * n
+
+    if k == 0:
+        return result
+
+    for i in range(n):
+        window_sum = 0
+        if k > 0:
+            for j in range(1, k + 1):
+                window_sum += code[(i + j) % n]
+        else:
+            for j in range(1, abs(k) + 1):
+                window_sum += code[(i - j) % n]
+
+        result[i] = window_sum
+
+    return result
+
+code = [5,7,1,4]
+k = 3
+# print(decrypt(code, k))
+            
