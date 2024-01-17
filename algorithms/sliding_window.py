@@ -134,4 +134,30 @@ def decrypt(code, k):
 code = [5,7,1,4]
 k = 3
 # print(decrypt(code, k))
+
+from collections import Counter
+
+def checkInclusion(s1, s2):
+    if len(s1) > len(s2):
+        return False
+    
+    s1_freq = Counter(s1)
+    window_freq = Counter(s2[:len(s1)])
+
+    for right in range(len(s1), len(s2)):
+        if s1_freq == window_freq:
+            return True
+        
+        window_freq[s2[right - len(s1)]] -= 1
+        if window_freq[s2[right - len(s1)]] == 0:
+            del window_freq[s2[right - len(s1)]]
+
+        window_freq[s2[right]] += 1
+    
+    return s1_freq == window_freq
+
+
+s1 = "ab"
+s2 = "eidbaooo"
+# print(checkInclusion(s1, s2))
             
