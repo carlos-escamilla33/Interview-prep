@@ -9,7 +9,10 @@ def depthFirstPrint(graph, source):
             stack.append(neighbor)
         
 
-
+def depthFirstPrintRecursive(graph, source):
+    print(source)
+    for neighbor in graph[source]:
+        depthFirstPrint(graph, neighbor)
 
 
 
