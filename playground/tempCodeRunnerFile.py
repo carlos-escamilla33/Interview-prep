@@ -1,19 +1,12 @@
-import math
 
-def containsDuplicate(nums):
-    count = {}
+def removeDuplicates(nums):
+    L = 0
 
-    for n in nums:
-        if n not in count:
-            count[n] = 0
-        count[n] += 1
-
-        if count[n] == 2:
-            return True
+    for R in range(L + 1, len(nums)):
+        if nums[L] == nums[R]:
+            L += 1
+        nums[L] = nums[R]
     
-    return False
-    
+    return L, nums[:L]
 
-arr = [1,2,3,4]
-
-print(containsDuplicate(arr))
+print(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
