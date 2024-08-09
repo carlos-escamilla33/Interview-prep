@@ -1,4 +1,4 @@
-from sorting_data import data_set, smaller_set
+from algorithms.sorting_data import data_set, smaller_set
 
 data = data_set
 data2 = smaller_set

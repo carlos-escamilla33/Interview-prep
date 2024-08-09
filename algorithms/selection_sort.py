@@ -1,4 +1,4 @@
-from sorting_data import data_set
+from algorithms.sorting_data import data_set
 
 def selectionSort(arr):
     comparisonCount = 0
