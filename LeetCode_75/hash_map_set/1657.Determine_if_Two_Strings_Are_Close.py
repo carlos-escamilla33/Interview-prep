@@ -19,4 +19,7 @@ def closeStrings(word1, word2):
     # check the characters are the same and the frequency of each character
     return (word1_ht.keys() == word2_ht.keys() 
             and sorted(word1_ht.values()) == sorted(word2_ht))
-    
+
+
+# space - O(n)
+# runtime - O(nlogn)
