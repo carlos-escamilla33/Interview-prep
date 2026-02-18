@@ -1,19 +1,22 @@
 def decodeString(s):
     stack = []
-    current_str = ""
-    current_num = 0
-
+    
     for char in s:
-        if char.isdigit():
-            current_num = current_num * 10 + int(char)  # handles multi-digit numbers
-        elif char == "[":
-            stack.append((current_str, current_num))  # save state
-            current_str = ""
-            current_num = 0
-        elif char == "]":
-            prev_str, num = stack.pop()
-            current_str = prev_str + num * current_str  # restore and expand
+        if char != "]":
+            stack.append(char)
         else:
-            current_str += char
+            substr = ""
+            while stack[-1] != "[":
+                substr = stack.pop() + substr
+            stack.pop()
 
-    return current_str
+            k = ""
+            while stack and stack[-1].isdigit():
+                k = stack.pop() + k
+            stack.append(int(k) * substr)
+    
+    return "".join(stack)
+
+s = "3[a]2[bc]"
+
+print(decodeString(s))
