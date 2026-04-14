@@ -21,4 +21,4 @@ def isAnagram(s, t):
         return len(s_ht) == 0
 
 # Time Complexity - O(2N), simplifies to O(N)
-# Space Complexity - O(N), because it can hold N characters in the hashtable
+# Space Complexity - O(N), because it can hold N characters in the hashtable structure
